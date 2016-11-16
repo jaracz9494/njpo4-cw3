@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,8 +13,14 @@ import javax.swing.JOptionPane;
  * @author Dominik
  */
 public class Cw3 extends javax.swing.JFrame { 
+    /*
+    int x,y;
     
-    
+    public void pozycja(int x, int y) {
+        this.x=x;
+        this.y=y;
+    }
+    */
       
 
     public Cw3() {
@@ -31,21 +38,55 @@ public class Cw3 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Uciekinier = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
+
+        Uciekinier.setText("Złap mnie :P");
+        Uciekinier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UciekinierMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(Uciekinier)
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(Uciekinier, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void UciekinierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UciekinierMouseEntered
+        
+        Random r = new Random();
+        int x, y;
+        int xp=Uciekinier.getLocation().x;
+        int yp=Uciekinier.getLocation().y;
+        
+        do {
+        
+            x=r.nextInt(688);
+            y=r.nextInt(514);
+            
+        } while(Math.abs(Math.abs(xp)-Math.abs(x))<100 || Math.abs(Math.abs(yp)-Math.abs(y))<100);
+        
+        Uciekinier.setLocation(x,y);
+
+    }//GEN-LAST:event_UciekinierMouseEntered
    
     /**
      * @param args the command line arguments
@@ -90,5 +131,6 @@ public class Cw3 extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Uciekinier;
     // End of variables declaration//GEN-END:variables
 }
